@@ -6,9 +6,18 @@
         <p>Bienvenue dans l’admin du blog.</p>
 
         @auth
-            <p class="text-sm text-gray-700">
-                Utilisateur connecté : {{ Auth::user()->name }}
-            </p>
-        @endauth
+    <p class="mb-2">Utilisateur connecté : {{ Auth::user()->name }}</p>
+
+    @if (Auth::user()->is_admin)
+        <p class="text-sm text-emerald-700 font-medium">
+            Profil détecté : <span class="font-semibold">Admin</span>
+        </p>
+    @else
+        <p class="text-sm text-sky-700 font-medium">
+            Profil détecté : <span class="font-semibold">Auteur</span>
+        </p>
+    @endif
+@endauth
+
     </div>
 @endsection
