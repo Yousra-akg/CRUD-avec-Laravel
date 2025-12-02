@@ -10,7 +10,7 @@
 | Modification d’article | /admin/articles/{id}/edit   | Réservé à certains rôles           |
 | Suppression d’article  | /admin/articles/{id}/delete | Réservé à certains rôles           |
 
-👉 **Résumé :** Les pages publiques restent ouvertes. L’espace admin et les actions sur les articles doivent être protégés.
+
 
 ---
 
@@ -35,7 +35,7 @@
 | Supprimer **ses propres** articles   | ❌        | ✔️     | ✔️                                   |
 | Supprimer **n’importe quel article** | ❌        | ❌      | ✔️                                   |
 
-👉 Ce tableau représente les **règles métier** qui seront implémentées dans V6.
+
 
 ---
 
@@ -49,7 +49,6 @@ Voici comment Laravel gèrera ces règles dans les prochains tutoriels :
 * **Limiter certaines actions (modifier, supprimer...)** → Gates et Policies.
 * **Autorisation fine (par article)** → Policy `ArticlePolicy`.
 
-👉 Ce document va servir directement pour les tutoriels 3.2.2 à 3.2.8.
 
 ---
 
