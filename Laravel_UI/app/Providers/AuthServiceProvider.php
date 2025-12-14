@@ -5,10 +5,14 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use App\Models\Article;
+use App\Policies\ArticlePolicy;
 
 
 class AuthServiceProvider extends ServiceProvider
 {
+    protected $policies = [
+    Article::class => ArticlePolicy::class,
+    ];
     /**
      * Register services.
      */
@@ -29,14 +33,9 @@ class AuthServiceProvider extends ServiceProvider
         return $user->is_admin === false;
        });
 
-       Gate::define('delete-article', function ($user, Article $article) {
-        // Admin → peut tout supprimer
-         if ($user->is_admin) {
-          return true;
-         }
-        // Auteur → peut supprimer seulement ses propres articles
-         return $article->user_id === $user->id;
-        });
-
+       // La logique de suppression est maintenant gérée par ArticlePolicy::delete()
+      // Gate::define('delete-article', function ($user, Article $article) {
+     //     ...
+    // });
     }
 }

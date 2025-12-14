@@ -70,12 +70,11 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article):redirectResponse
+    public function destroy(Article $article)
     {
-        if (! Gate::allows('delete-article', $article)) {
-        abort(403);
-        }
+        $this->authorize('delete', $article);
         $article->delete();
-        return redirect()->route('admin.articles.index')->with('status', '🗑️ Article supprimé avec succès.');
+        return redirect()->route('admin.articles.index')
+            ->with('status', 'Article supprimé avec succès');
     }
 }

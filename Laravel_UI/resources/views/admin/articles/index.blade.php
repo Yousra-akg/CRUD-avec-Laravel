@@ -29,7 +29,7 @@
           <td>{{ $a->slug }}</td>
           <td style="text-align:center;">
             <a href="{{ route('articles.edit', $a) }}">✏️</a>
-            @can('delete-article', $a)
+            @can('delete', $a)
             <form action="{{ route('articles.destroy', $a) }}" method="POST" style="display:inline;">
               @csrf 
               @method('DELETE')
@@ -37,7 +37,7 @@
             </form>
             @endcan
 
-            @cannot('delete-article', $a)
+            @cannot('delete', $a)
                    <span class="ml-2 text-xs text-gray-500">
                        Vous ne pouvez pas supprimer cet article.
                    </span>
