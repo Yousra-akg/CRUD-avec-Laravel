@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="max-w-5xl mx-auto px-4 py-8">
-        <h1 class="text-2xl font-semibold mb-4">Espace d’administration</h1>
+        <h1 class="text-2xl font-semibold mb-4">Espace d'administration</h1>
 
         @auth
             <p class="mb-2">Utilisateur connecté : {{ Auth::user()->name }}</p>
